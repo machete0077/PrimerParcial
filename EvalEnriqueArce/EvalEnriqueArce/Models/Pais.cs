@@ -9,6 +9,7 @@ namespace EvalEnriqueArce.Models
 {
     public class Pais
     {
+        [Key]
         [Required(ErrorMessage = "Introduzca el dato solicitado")]
         [Display(Name = "Pais")]
         [StringLength(20, ErrorMessage = "The field 0} must contain between {2} and {1} characters", MinimumLength = 2)]
@@ -19,12 +20,12 @@ namespace EvalEnriqueArce.Models
         [StringLength(20, ErrorMessage = "The field 0} must contain between {2} and {1} characters", MinimumLength = 2)]
         public String Capital { get; set; }
 
-        [Key]
         [Required(ErrorMessage = "Introduzca el dato solicitado")]
         [Range(1, 999999999)]
         public int Poblacion { get; set; }
 
         [Required(ErrorMessage = "Introduzca el dato solicitado")]
+        [RegularExpression(@"^\w+([-+.']\w+):*@°,\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Enlace no valido")]
         [Range(1, 999999.99999)]
         public int LatLng { get; set; }
 
@@ -34,10 +35,9 @@ namespace EvalEnriqueArce.Models
         public DateTime TimeZone { get; set; }
 
         [Required(ErrorMessage = "Introduzca el dato solicitado")]
-        [DataType(DataType.Currency)]
-        public CurrencyWrapper Moneda { get; set; }
+        [Display(Name = "Euros")]
+        public String Moneda { get; set; }
         
-        [Key]
         [Required(ErrorMessage = "Introduzca el dato solicitado")]
         [RegularExpression(@"^\w+([-+.']\w+):*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Enlace no valido")]
         [DataType(DataType.Text)]

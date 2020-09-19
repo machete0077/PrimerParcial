@@ -8,6 +8,8 @@ namespace EvalEnriqueArce.Models
         {
 
         }
-        public System.Data.Entity.DbSet<EvalEnriqueArce.Models.Pais> Students { get; set; }
+
+        public System.Data.Entity.DbSet<EvalEnriqueArce.Models.Pais> Pais { get; set; }
+        //public System.Data.Entity.DbSet<EvalEnriqueArce.Models.Pais> Paises { get; set; }
     }
 }
